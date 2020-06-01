@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  belongs_to :user_id
+  belongs_to :owner, source: :user
   has_many :orders
-  has_many :users, through :orders
+  has_many :buyers, through: :orders, source: :user
 end
