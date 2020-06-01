@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Medieval Market</h1>
+  <ul>
+  <% @products.each do |product| %>
+    <li><%= product.name %> - <%= product.coin_price %> coins</li>
+  <% end %>
+  </ul>
+</div>
