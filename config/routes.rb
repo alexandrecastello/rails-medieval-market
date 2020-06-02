@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   resources :products do
     resources :orders, only: :create
   end
-  resources :users
 end
