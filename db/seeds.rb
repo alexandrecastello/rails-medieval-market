@@ -17,15 +17,15 @@ puts "Adding users to db"
 25.times do |user|
   User.create(
     name: 
-    username: Faker::Internet.username
-    email: Faker::Internet.safe_email(name: 'Nancy')
+    username: Faker::Internet.unique.username
+    email: Faker::Internet.unique.safe_email(name: 'Nancy')
     encrypted_password: Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true)
     coins: rand(1..100)
   )
     puts "User #{i + 1} added."
     15.times do |i|
       Product.create(
-        name: Faker::Food.spice
+        name: Faker::Food.unique.spice
         description: "a simple spice"
         quantity: rand(1..20)
         category: "spice"
