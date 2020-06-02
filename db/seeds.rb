@@ -15,7 +15,7 @@
 
 puts "Adding users to db"
 25.times do |user|
-  User.create!(
+  User.create(
     name: 
     username: Faker::Internet.username
     email: Faker::Internet.safe_email(name: 'Nancy')
@@ -24,9 +24,9 @@ puts "Adding users to db"
   )
     puts "User #{i + 1} added."
     15.times do |i|
-      Product.create!(
+      Product.create(
         name: Faker::Food.spice
-        description: Faker::
+        description: "a simple spice"
         quantity: rand(1..20)
         category: "spice"
       )
