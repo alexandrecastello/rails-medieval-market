@@ -23,7 +23,9 @@ puts "Adding users to db"
         description: "a simple spice",
         quantity: rand(1..20),
         category: "spice",
-        owner: u
+        owner: u,
+        coin_price: rand(1..50)
+
       )
       puts "product #{prod + 1} to user."
     end
