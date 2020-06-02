@@ -13,7 +13,9 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
+    @product.save
     if @product.save
+      raise # @product.owner = current_user # esperando a implementação das páginas de usuário
       redirect_to product_path(@product)
     else
       render :new

@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Medieval Market</h1>
+  <h2><%= @product.name %></h2>
+  <p><%= @product.coin_price%> coins</p>
+  <p><%= @product.owner.username %></p>
+  <p>Description: <%= @product.description%></p>
+</div>
+
+<%= link_to 'Back to products', products_path %></li>
