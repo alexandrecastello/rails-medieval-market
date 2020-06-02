@@ -65,7 +65,7 @@ body {
 .footer {
   background-color: #313131;
   padding-bottom: 0;
-  height: 200px;
+  height: 180px;
   width: 100vw;
   position: relative;
   left: 50%;
@@ -79,6 +79,20 @@ body {
   line-height: 41px;
   color: white;
   padding-top: 25px;
-  line-height: 10%;
+}
+
+.footer p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 41px;
+  color: white;
+  line-height: 60%;
+}
+
+.footer i {
+  padding-top: 60px;
+  color: white;
+  font-size: 50px;
 }
 
