@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-destroy.all
+User.destroy_all if Rails.env.development?
 puts "Adding users to db"
 10.times do |user|
  u = User.create!(
