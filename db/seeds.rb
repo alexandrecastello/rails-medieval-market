@@ -25,6 +25,7 @@ puts "Adding users to db"
         category: "spice",
         owner: u,
         coin_price: rand(1..50)
+
       )
       puts "product #{prod + 1} to user."
     end

@@ -13,19 +13,21 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
-    @user = User.new(use_params)
+  # edit + update
 
-    if @user.save
-      redirect_to @user, notice: 'Welcome'
-    else
-      render :new, notice: 'Please review pending fields'
-    end
-  end
+  # def create
+  #   @user = User.new(use_params)
 
-  def destroy
-    @user.destroy
-  end
+  #   if @user.save
+  #     redirect_to @user, notice: 'Welcome'
+  #   else
+  #     render :new, notice: 'Please review pending fields'
+  #   end
+  # end
+
+  # def destroy
+  #   @user.destroy
+  # end
 
   private
 
@@ -34,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :encrypted_password,:avatar)
+    params.require(:user).permit(:username, :email, :password,:avatar)
   end
  
 end
