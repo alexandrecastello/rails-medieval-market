@@ -1,19 +1,30 @@
 class UsersController < ApplicationController
  
-  before_action :set_user, only: %i[show]
-
+  before_action :set_user, only: %i[show my_items edit update ]
 
   def show
+    raise
+    @products = @user.products
+  end
+  
+  def my_items
     # check set_user method
-    @user = User.new
-
   end
 
   def new
     @user = User.new
   end
 
-  # edit + update
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user, notice: "user updated"
+    else
+      render :edit
+    end
+  end
 
   # def create
   #   @user = User.new(use_params)
@@ -36,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password,:avatar)
+    params.require(:user).permit(:username, :email, :password, :avatar)
   end
  
 end

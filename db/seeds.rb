@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
+destroy.all
 puts "Adding users to db"
 10.times do |user|
  u = User.create!(
@@ -22,8 +22,9 @@ puts "Adding users to db"
         name: Faker::Food.unique.spice,
         description: "a simple spice",
         quantity: rand(1..20),
+        coin_price: rand(1..10),
         category: "spice",
-        owner: u
+        user_id: u.id
       )
       puts "product #{prod + 1} to user."
     end
