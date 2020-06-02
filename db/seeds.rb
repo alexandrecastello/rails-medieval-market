@@ -9,23 +9,24 @@
 require 'faker'
 
 puts "Adding users to db"
-25.times do |user|
-  User.create(
+10.times do |user|
+ u = User.create!(
     username: Faker::Internet.unique.username,
     email: Faker::Internet.unique.safe_email,
-    password: Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true),
+    password: "123456",
     coins: rand(1..100)
   )
     puts "User #{user + 1} added."
-    15.times do |prod|
-      Product.create(
+    5.times do |prod|
+      Product.create!(
         name: Faker::Food.unique.spice,
         description: "a simple spice",
         quantity: rand(1..20),
-        category: "spice"
+        category: "spice",
+        owner: u
       )
+      puts "product #{prod + 1} to user."
     end
-    puts "product #{prod + 1} to user."
 end
 puts "seed generated"
 
