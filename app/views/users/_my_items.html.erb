@@ -1,1 +1,11 @@
-list showing user items
+
+<% @user.products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td>Quantity<%= product.quantity %></td>
+    <td><%= link_to product_path(product), method: :delete, 
+        data: { confirm: "Delete item?" } do %>
+          <i class="fa fa-trash d-flex justify-content-around"></i>
+      <% end %></td>
+  </tr>
+<% end %>
