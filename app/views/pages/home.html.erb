@@ -1,7 +1,8 @@
 <div class="container">
 
 <div class="top-banner">
-<img src="assets/banner.jpg" class="banner">
+<%# <img src="assets/banner.jpg" class="banner"> %>
+<%= image_tag 'banner.jpg', class: "banner" %>
 </div>
 
   <div class="pl-0 pt-5" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131; margin-top: -20px;">
@@ -12,7 +13,8 @@
   <% @products.each do |product| %>
     <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white">
       <%= link_to  product_path(product) do %>
-        <img class="card-img-top" src="assets/placeholder.png" alt="Card image cap">
+        <%# <img class="card-img-top" src="assets/placeholder.png" alt="Card image cap"> %>
+        <%= image_tag "placeholder.png", class:"card-img-top" %>
         <div class="card-body">
           <h5 class="card-title" style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 18px;"><%= product.name %></h5>
           <p class="card-text" style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px;"><i class="fas fa-coins" style="color: #e9a003;"></i>
