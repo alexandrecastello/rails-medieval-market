@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @products = Product.all
   end
@@ -13,7 +15,7 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    @product.user_id = 1 # @product.user = current_user # esperando a implementação das páginas de usuário
+    @product.user = current_user
     @product.save
     if @product.save
       redirect_to product_path(@product)
