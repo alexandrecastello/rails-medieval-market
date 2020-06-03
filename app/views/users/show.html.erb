@@ -1,5 +1,10 @@
 <div class="container">
 
+  <div class="row justify-content-around">
   <h2><%= @user.username %></h2>
+  <%= link_to 'Sell a product', new_product_path %>
+  <%= link_to 'Back to Products', products_path%>
+  <%= link_to 'Home', root_path%>
+  </div>
   <%= render "users/my_items" %>
 </div>
