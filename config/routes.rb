@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :orders, only: %i[create]
   end
   resources :users, only: %i[show]
-  
+  resources :orders, only: %i[create]
 end
