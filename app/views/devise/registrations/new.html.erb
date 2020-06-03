@@ -1,12 +1,12 @@
 <div class="container mt-5">
   <div class="row justify-content-center align-items-center">
-    <div class="col-md-6">
-      <div class="col-md-12">
+    <div class="col-md-4">
+        <h3 class="text-center">Sign up</h3>
 
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
 
-          <div class="form-inputs mt-5">
+          <div class="form-inputs">
             <%= f.input :email,
                         required: true,
                         autofocus: true,
@@ -21,12 +21,10 @@
           </div>
             <div class="row justify-content-center">
               <div class="form-actions">
-                <%= f.button :submit, class:"btn btn-primary btn-md", value: "Create new account" %>
+                <br><%= f.button :submit, class:"btn btn-primary btn-md", value: "Create new account" %>
               </div>
             </div>
         <% end %>
-
-      </div>
     </div>
   </div>
 </div>
