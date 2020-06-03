@@ -4,5 +4,6 @@
   <p><%= @product.coin_price%> coins</p>
   <p><%= @product.user.username %></p>
   <p>Description: <%= @product.description if @product.description %></p>
+  <%= link_to "Buy this item", "buy_path"%>
   <%= link_to 'Back to all products', products_path %></li>
 </div>
