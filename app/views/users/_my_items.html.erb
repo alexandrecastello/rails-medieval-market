@@ -1,7 +1,7 @@
 
 <% @user.products.each do |product| %>
   <tr>
-    <td><%= product.name %></td>
+    <td><%= link_to "#{product.name}", product_path(product) %></td>
     <td>Quantity<%= product.quantity %></td>
     <td><%= link_to product_path(product), method: :delete, 
         data: { confirm: "Delete item?" } do %>
