@@ -1,29 +1,40 @@
-<div class="navbar-custom">
-<img src="assets/logo.png" class="logo">
-<p><strong>Sign in</strong> or <strong>create account</strong></p>
+<div class="container">
+
+<div class="navbar-custom pr-5">
+  <img src="assets/logo.png" class="logo">
+  <p><strong>Sign in</strong> or <strong>create account</strong></p>
 </div>
 
 <div class="top-banner">
-<img src="assets/banner.jpg" class="banner">
+  <img src="assets/banner.jpg" class="banner">
 </div>
 
-<div class="all-products" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131;">
+<div class="pl-0 pt-5" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131; margin-top: -20px;">
   <p>All products</p>
 </div>
 
-<div class="container">
-
-<div class="row d-flex justify-content-between">
-
-    <% @products.each do |product| %>
-        <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white">
+<div class="row d-flex justify-content-space-around">
+  <% @products.each do |product| %>
+    <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white">
       <img class="card-img-top" src="assets/placeholder.png" alt="Card image cap">
       <div class="card-body">
-      <h5 class="card-title" style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 18px;"><%= product.name %></h5>
-      <p class="card-text" style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px;"><%= product.coin_price %></p>
+        <h5 class="card-title" style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 18px;"><%= product.name %></h5>
+        <p class="card-text" style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px;"><%= product.coin_price %></p>
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="footer">
+  <div class="container d-flex space-evenly">
+    <i class="fas fa-chess-knight ml-5"></i>
+      <div class="container ml-5">
+        <h1>About us</h1>
+        <p>How to sell</p>
+        <p>How to buy</p>
+        <p>FAQ</p>
+      </div>
   </div>
+</div>
 
 </div>

@@ -2,8 +2,7 @@
   <h1>Medieval Market</h1>
   <h2><%= @product.name %></h2>
   <p><%= @product.coin_price%> coins</p>
-  <p><%= @product.owner.username %></p>
-  <p>Description: <%= @product.description%></p>
+  <p><%= @product.user.username %></p>
+  <p>Description: <%= @product.description if @product.description %></p>
+  <%= link_to 'Back to all products', products_path %></li>
 </div>
-
-<%= link_to 'Back to products', products_path %></li>

@@ -1,10 +1,14 @@
-  
 <div class="container">
+
+  <div class="navbar-custom">
+    <img src="../assets/logo.png" class="logo">
+  </div>
+
   <div class="row justify-content-center align-items-center">
     <div class="col-md-6">
       <div class="col-md-12">
-        <form class="form p-4 border border-dark" method="post">
-        <h3 class="text-center">Login</h3>
+        <form class="form p-4" method="post">
+        <h3 class="text-center mt-5" style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 25px; line-height: 41px; color: #313131;">Sign in</h3>
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="form-inputs">
               <%= f.input :email,
@@ -26,5 +30,19 @@
         </form>
       </div>
     </div>
-  </div>                  
+  </div>
 </div>
+
+<div class="footer" style="position: absolute; bottom: 0;">
+
+    <div class="container d-flex space-evenly" >
+      <i class="fas fa-chess-knight ml-5"></i>
+      <div class="container ml-5">
+        <h1>About us</h1>
+        <p>How to sell</p>
+        <p>How to buy</p>
+        <p>FAQ</p>
+      </div>
+    </div>
+    </div>
+  </div>
