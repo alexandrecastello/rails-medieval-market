@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :orders, only: :create
   end
-
   resources :users, only: %i[show]
   
 end

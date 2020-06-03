@@ -1,0 +1,13 @@
+<div class="container">
+  <%= simple_form_for(product) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :quantity %>
+    <%= f.input :coin_price %>
+    <%= f.input :category %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+
+<%#= add the line below to link to this partial %>
+<%#= render 'shared/new', user: current_user, product: @product  %>
