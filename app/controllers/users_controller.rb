@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show my_items edit update ]
 
   def show
-    raise
     @products = @user.products
   end
   
