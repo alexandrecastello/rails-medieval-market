@@ -4,22 +4,28 @@
 <img src="assets/banner.jpg" class="banner">
 </div>
 
-    <div class="pl-0 pt-5" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131; margin-top: -20px;">
+  <div class="pl-0 pt-5" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131; margin-top: -20px;">
     <p>Featured</p>
   </div>
 
-  <div class="row pt-5 pb-4" style="margin-top: -40px;">
-    <img src="assets/placeholder.png" class="col-4">
-    <img src="assets/placeholder.png" class="col-4">
-    <img src="assets/placeholder.png" class="col-4">
-  </div>
-
-  <div class="pl-0" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131;">
-    <p>New products</p>
-  </div>
-
   <div class="row d-flex justify-content-space-around">
-    <%= render 'shared/recent_products' %>
+  <% @products.each do |product| %>
+    <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white">
+      <%= link_to  product_path(product) do %>
+        <img class="card-img-top" src="assets/placeholder.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title" style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 18px;"><%= product.name %></h5>
+          <p class="card-text" style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px;"><i class="fas fa-coins" style="color: #e9a003;"></i>
+
+  <%= product.coin_price%>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+    </div>
+
   </div>
 
   <div class="footer">

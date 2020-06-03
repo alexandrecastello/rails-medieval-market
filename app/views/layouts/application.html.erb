@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsMedievalMarket</title>
+    <title>Medieval Market</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,10 +16,12 @@
     <p class="alert"><%= alert %></p>
     <div class="container">
     <div class="navbar-custom">
-      <img src="../assets/logo.png" class="logo">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", class: "logo" %>
+      <% end %>
       <p>
         <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
+        Logged in as <strong><%= link_to "#{current_user.email}", user_path(current_user) %></strong>.
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>

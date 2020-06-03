@@ -1,18 +1,36 @@
-<h2>Forgot your password?</h2>
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-4">
+        <form class="form p-4" method="post">
+          <h3 class="text-center mb-3">Forgot Your Password?</h3>
+          <p class="text-center mb-5">Enter your email and we'll send you reset instructions right away. </p>
+          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" } %>
+            </div>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+            <div class="row justify-content-center mt-4">
+              <%= f.button :submit, class:"btn btn-primary btn-md", value: "Submit" %>
+            </div>
+          <% end %>
+        </form>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+<div class="footer" style="position: absolute; bottom: 0;">
+  <div class="container d-flex space-evenly">
+    <i class="fas fa-chess-knight ml-5"></i>
+      <div class="container ml-5">
+        <h1>About us</h1>
+        <p>How to sell</p>
+        <p>How to buy</p>
+        <p>FAQ</p>
+      </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

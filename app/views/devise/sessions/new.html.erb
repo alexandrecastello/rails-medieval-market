@@ -1,10 +1,7 @@
-  
-<div class="container">
+<div class="container mt-5">
   <div class="row justify-content-center align-items-center">
-    <div class="col-md-6">
-      <div class="col-md-12">
-        <form class="form p-4 border border-dark" method="post">
-        <h3 class="text-center">Login</h3>
+    <div class="col-md-4">
+        <h3 class="text-center">Log in</h3>
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="form-inputs">
               <%= f.input :email,
@@ -14,17 +11,26 @@
               <%= f.input :password,
                         required: false,
                         input_html: { autocomplete: "current-password" } %>
-              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-            </div>
-            <div class="form-actions">
-              <%= f.button :submit, class:"btn btn-primary btn-md", value: "Log In" %>
+                        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
             </div>
             <div class="row justify-content-center">
-              <%= render "devise/shared/links" %>
-              <% end %>
+            <div class="form-actions">
+              <br><%= f.button :submit, class:"btn btn-primary btn-md", value: "Log In" %>
             </div>
-        </form>
+            </div>
+              <% end %>
       </div>
-    </div>
-  </div>                  
+  </div>
+</div>
+
+<div class="footer" style="position: absolute; bottom: 0;">
+  <div class="container d-flex space-evenly">
+    <i class="fas fa-chess-knight ml-5"></i>
+      <div class="container ml-5">
+        <h1>About us</h1>
+        <p>How to sell</p>
+        <p>How to buy</p>
+        <p>FAQ</p>
+      </div>
+  </div>
 </div>
