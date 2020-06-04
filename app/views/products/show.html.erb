@@ -1,13 +1,22 @@
 <div class="container">
   <h2><%= @product.name %></h2>
-  <p><%= @product.coin_price%> coins</p>
-  <p><%= @product.user.username %></p>
   <p>Description: <%= @product.description if @product.description %></p>
+  <p>Owner: <%= @product.user.username %></p>
+  <p>Price: <%= @product.coin_price%> coins</p>
+  <% if @product.tradable_for != '' %>
+    <p>Tradable for: <%= @product.tradable_for %></p>
+  <% end %>
   <% if @product.user != current_user %>
     <div class="container">
+    <h3>Do you wanna buy it?</h3>
       <%= simple_form_for [@product, @order] do |f| %>
-        <%= f.input :quantity %>
+        <%= f.input :quantity, input_html: { min: 1 } %>
         <%= f.button :submit %>
+      <% end %>
+      <% if current_user.products.find_by name: @product.tradable_for %>
+        <p>-- or --</p>
+        <h3>Do you wanna trade your <%= @product.tradable_for %> for this <%= @product.name %>?</h3>
+        <%= link_to 'TRADE!', product_trade_path(@product), method: :post %>
       <% end %>
     </div>
   <% else %>
