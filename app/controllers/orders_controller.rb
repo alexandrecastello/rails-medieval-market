@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
         new_product.save
         product.save
         flash[:alert] = "Congratulations: You bought #{order.quantity} #{new_product.name}"
-        redirect_to edit_product(current_user.products.last)
+        redirect_to products_path(product)
       end
     end
   end
@@ -37,12 +37,16 @@ class OrdersController < ApplicationController
   def trade
     seller_product = Product.find(params[:product_id])
     order = Order.new user: current_user, product: seller_product, quantity: 1, tradable: seller_product.tradable_for
-    if seller_product.quantity <= 0
+    buyer_product = current_user.products.find_by name: order.tradable
+    
+    if seller_product.quantity <= 0 
       flash[:alert] = "There is no #{seller_product.name} available at the moment. :( "
+      redirect_to products_path(seller_product)
+    elsif buyer_product.quantity <= 0 
+      flash[:alert] = "You have no #{buyer_product.name} available at the moment. :( "
       redirect_to products_path(seller_product)
     else
       seller_product.quantity -= 1
-      buyer_product = current_user.products.find_by name: order.tradable
       buyer_product.quantity -= 1
       buyer_new_product = current_user.products.find_by name: seller_product.name
       if buyer_new_product.nil? 
@@ -61,7 +65,7 @@ class OrdersController < ApplicationController
       buyer_product.save
       buyer_new_product.save
       flash[:alert] = "Congratulations: You traded your #{buyer_product.name} for this wonderful #{buyer_new_product.name}"
-      redirect_to edit_product(current_user.products.last)
+      redirect_to products_path(current_user.products.last)
     end
   end
   

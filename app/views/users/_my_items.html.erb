@@ -7,23 +7,25 @@
       <th>Action</th>     
     <% end %>
   </thead>
-  <% @user.products.each do |product| %>
-    <tr>
-      <td><%= link_to "#{product.name}", product_path(product) %></td>
-      <td><%= product.quantity %></td>
-      <% if product.user == current_user %>
-        <td>
-          <div class="row justify-content-space-between">
-            <%= link_to product_path(product), method: :delete, 
-            data: { confirm: "Delete item?" } do %>
-              <i class="fa fa-trash d-flex justify-content-around pr-5"></i>
-            <% end %>
-            <%= link_to edit_product_path(product) do %>
-              <i class="fa fa-edit justify-content-around"></i>
-            <% end %>
-          </div>
-        </td>
-        <% end %>
-    </tr>
+  <% @products.each do |product| %>
+    <% if product.quantity > 0 %>
+      <tr>
+        <td><%= link_to "#{product.name.capitalize}", product_path(product) %></td>
+        <td><%= product.quantity %></td>
+        <% if product.user == current_user %>
+          <td>
+            <div class="row justify-content-space-between">
+              <%= link_to product_path(product), method: :delete, 
+              data: { confirm: "Delete item?" } do %>
+                <i class="fa fa-trash d-flex justify-content-around pr-5"></i>
+              <% end %>
+              <%= link_to edit_product_path(product) do %>
+                <i class="fa fa-edit justify-content-around"></i>
+              <% end %>
+            </div>
+          </td>
+          <% end %>
+      </tr>
+    <% end %>
   <% end %>
 </table>
