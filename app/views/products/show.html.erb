@@ -2,14 +2,17 @@
   <h2><%= @product.name %></h2>
   <p>Description: <%= @product.description if @product.description %></p>
   <p>Owner: <%= @product.user.username %></p>
+  
   <% if @product.quantity > 0 %>
-    <p>Price: <%= @product.coin_price%> coins</p>
-  <% if @product.tradable_for != '' %>
-    <p>Tradable for: <%= @product.tradable_for %></p>
-  <% end %>
+    <p>Available: <%= @product.quantity%></p>
+    <p>Unit rice: <%= @product.coin_price%> coins</p>
+    <% if @product.tradable_for != '' %>
+      <p>Tradable for: <%= @product.tradable_for %></p>
+    <% end %>
   <% else %>
     <p>Product not avaliable</p>
   <% end %>
+  
   <% if @product.user != current_user && @product.quantity > 0 %>
     <div class="container">
     <h3>Do you wanna buy it?</h3>
@@ -19,7 +22,7 @@
       <% end %>
       <% if current_user.products.find_by name: @product.tradable_for %>
         <p>-- or --</p>
-        <h3>Do you wanna trade your <%= @product.tradable_for %> for this <%= @product.name %>?</h3>
+        <h3>Do you wanna trade a <%= @product.tradable_for %> for this <%= @product.name %>?</h3>
         <%= link_to 'TRADE!', product_trade_path(@product), method: :post %>
       <% end %>
     </div>

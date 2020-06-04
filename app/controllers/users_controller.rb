@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show my_items edit update ]
 
   def show
-    @products = @user.products
+    @products = Product.order(:name).where(user: @user)
   end
   
   def my_items
