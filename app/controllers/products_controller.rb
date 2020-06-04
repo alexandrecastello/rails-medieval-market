@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy trade]
   skip_before_action :authenticate_user!, only: %i[index show]
 
+  include PgSearch::Model
+
   def index
     @products = Product.all
   end
