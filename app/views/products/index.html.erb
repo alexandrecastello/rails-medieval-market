@@ -1,17 +1,22 @@
+  <div class="topo">
+
+    <div class="batata">
+      <%= form_tag products_path, method: :get do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search a product here"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+  </div>
+
 <div class="container">
 
-<%
-=begin%>
- <div class="navbar-custom pr-5">
-  <img src="assets/logo.png" class="logo">
-  <p><strong>Sign in</strong> or <strong>create account</strong></p>
-</div>
-<%
-=end%>
 
-  <div class="top-banner">
-    <%= image_tag "banner.jpg", class:"banner" %>
-  </div>
+
 
   <div class="pl-0 pt-5" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131; margin-top: -20px;">
     <p>Products</p>
