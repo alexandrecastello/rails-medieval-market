@@ -1,0 +1,35 @@
+.footer {
+  background-color: #313131;
+  padding-bottom: 2.5rem;
+  height: 10rem;
+  width: 100vw;
+  position: relative;
+  bottom: 0;
+  left: 50%;
+  margin-top: 25px;
+  margin-left: -50vw;
+}
+
+.footer h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 41px;
+  color: white;
+  padding-top: 25px;
+}
+
+.footer p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 41px;
+  color: white;
+  line-height: 60%;
+}
+
+.footer i {
+  padding-top: 60px;
+  color: white;
+  font-size: 50px;
+}
