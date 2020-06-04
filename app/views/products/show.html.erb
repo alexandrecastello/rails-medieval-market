@@ -1,35 +1,30 @@
 <div class="container">
-
-  <div class="row">
-
-    <div class="col s3">
-      <%= link_to 'Back to all products', products_path %></li>
+  <h2><%= @product.name %></h2>
+  <p>Description: <%= @product.description if @product.description %></p>
+  <p>Owner: <%= @product.user.username %></p>
+  <% if @product.quantity > 0 %>
+    <p>Price: <%= @product.coin_price%> coins</p>
+  <% if @product.tradable_for != '' %>
+    <p>Tradable for: <%= @product.tradable_for %></p>
+  <% end %>
+  <% else %>
+    <p>Product not avaliable</p>
+  <% end %>
+  <% if @product.user != current_user && @product.quantity > 0 %>
+    <div class="container">
+    <h3>Do you wanna buy it?</h3>
+      <%= simple_form_for [@product, @order] do |f| %>
+        <%= f.input :quantity, input_html: { min: 1 } %>
+        <%= f.button :submit %>
+      <% end %>
+      <% if current_user.products.find_by name: @product.tradable_for %>
+        <p>-- or --</p>
+        <h3>Do you wanna trade your <%= @product.tradable_for %> for this <%= @product.name %>?</h3>
+        <%= link_to 'TRADE!', product_trade_path(@product), method: :post %>
+      <% end %>
     </div>
-    <div class="imagebox" style="margin-left: -100px;">
-    <%= image_tag "placeholder.png", class:"img-product" %>
-    <h1><strong>About this product</strong></h1><p><%= @product.description if @product.description %></p>
-    </div>
-    <div class="col s9" style="margin-top: 50px;">
-      <div class="container">
-        <h2><%= @product.name %></h2>
-    <p style="font-family: 'Roboto';">Offered by the noble <%= @product.user.username %></p><br>
-
-    <p style="font-family: 'Roboto', sans-serif; font-size: 20px;"><i class="fas fa-coins" style="color: #e9a003;"></i> <%= @product.coin_price%> coins</p>
-
-    <% if @product.user != current_user %>
-        <%= simple_form_for [@product, @order] do |f| %>
-          <div class="quantidade">
-          <%= f.input :quantity %>
-          </div>
-          <%= f.button :submit %>
-
-        <% end %>
-      </div>
-    <% else %>
-      <%= render 'products/edit', user: current_user, product: @product  %>
-    <% end %>
-    </div>
-
-  </div>
-
+  <% elsif @product.user == current_user %>
+    <%= render 'products/edit', user: current_user, product: @product  %>
+  <% end %>
+  <%= link_to 'Back to all products', products_path %></li>
 </div>
