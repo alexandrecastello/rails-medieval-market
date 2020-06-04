@@ -8,11 +8,13 @@
   <p><%= @product.coin_price%> coins</p>
   <p><%= @product.user.username %></p>
   <p>Description: <%= @product.description if @product.description %></p>
-  <div class="container">
-    <%= simple_form_for [@product, @order] do |f| %>
-      <%= f.input :quantity %>
-      <%= f.button :submit %>
-    <% end %>
-  </div>
+
+    <div class="container">
+      <%= simple_form_for [@product, @order] do |f| %>
+        <%= f.input :quantity %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+
   <%= link_to 'Back to all products', products_path %></li>
 </div>

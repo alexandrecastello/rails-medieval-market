@@ -34,6 +34,7 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
+    @product.save
     redirect_to product_path(@product)
   end
 
