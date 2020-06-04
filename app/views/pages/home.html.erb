@@ -5,6 +5,14 @@
 <%= image_tag 'banner.jpg', class: "banner" %>
 </div>
 
+  <%= form_tag products_path, method: :get do %>
+    <%= text_field_tag :query, 
+        params[:query], 
+        class: "form-control",
+        placeholder: "Search a product here"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <div class="pl-0 pt-5" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131; margin-top: -20px;">
     <p>Featured</p>
   </div>

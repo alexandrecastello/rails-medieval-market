@@ -4,7 +4,10 @@ class Product < ApplicationRecord
   has_many :buyers, through: :orders, source: :user
 
   include PgSearch::Model
-  pg_search_scop :global_search,
+  pg_search_scope :global_search,
     against: [:name, :description],
+    using: {
+      tsearch: {prefix: true}
+    }
 
 end
