@@ -1,20 +1,17 @@
 <div class="container">
-  <%
-=begin%>
- <h1>Medieval Market</h1> 
-<%
-=end%>
   <h2><%= @product.name %></h2>
   <p><%= @product.coin_price%> coins</p>
   <p><%= @product.user.username %></p>
   <p>Description: <%= @product.description if @product.description %></p>
-
+  <% if @product.user != current_user %>
     <div class="container">
       <%= simple_form_for [@product, @order] do |f| %>
         <%= f.input :quantity %>
         <%= f.button :submit %>
       <% end %>
     </div>
-
+  <% else %>
+    <%= render 'products/edit', user: current_user, product: @product  %>
+  <% end %>
   <%= link_to 'Back to all products', products_path %></li>
 </div>

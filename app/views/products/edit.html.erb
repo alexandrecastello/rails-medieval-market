@@ -1,4 +1,5 @@
 <div class="container">
+  <h3>Edit <%= @product.name %>:</h3>
   <%= simple_form_for(@product) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
