@@ -3,6 +3,7 @@
 body {
   margin: 0;
   background-color: white;
+  height: 100%;
 }
 
 .topo {
@@ -75,3 +76,39 @@ body {
   line-height: 41px;
   color: #313131;
 }
+
+.img-product {
+  width: 300px;
+  height: 300px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+.imagebox h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 41px;
+  color: #313131;
+}
+
+.quantidade {
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Roboto', sans-serif;
+}
+
+// .btn-primary {
+//   background-color: #FF6978;
+//   color: white;
+//   border: none;
+// }
+
+// .btn-primary:hover {
+//   background-color: #E54D5D;
+// }
+
+// .btn-primary:active {
+//   background-color: #E54D5D;
+// }
