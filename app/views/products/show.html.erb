@@ -1,17 +1,35 @@
 <div class="container">
-  <h2><%= @product.name %></h2>
-  <p><%= @product.coin_price%> coins</p>
-  <p><%= @product.user.username %></p>
-  <p>Description: <%= @product.description if @product.description %></p>
-  <% if @product.user != current_user %>
-    <div class="container">
-      <%= simple_form_for [@product, @order] do |f| %>
-        <%= f.input :quantity %>
-        <%= f.button :submit %>
-      <% end %>
+
+  <div class="row">
+
+    <div class="col s3">
+      <%= link_to 'Back to all products', products_path %></li>
     </div>
-  <% else %>
-    <%= render 'products/edit', user: current_user, product: @product  %>
-  <% end %>
-  <%= link_to 'Back to all products', products_path %></li>
+    <div class="imagebox" style="margin-left: -100px;">
+    <%= image_tag "placeholder.png", class:"img-product" %>
+    <h1><strong>About this product</strong></h1><p><%= @product.description if @product.description %></p>
+    </div>
+    <div class="col s9" style="margin-top: 50px;">
+      <div class="container">
+        <h2><%= @product.name %></h2>
+    <p style="font-family: 'Roboto';">Offered by the noble <%= @product.user.username %></p><br>
+
+    <p style="font-family: 'Roboto', sans-serif; font-size: 20px;"><i class="fas fa-coins" style="color: #e9a003;"></i> <%= @product.coin_price%> coins</p>
+
+    <% if @product.user != current_user %>
+        <%= simple_form_for [@product, @order] do |f| %>
+          <div class="quantidade">
+          <%= f.input :quantity %>
+          </div>
+          <%= f.button :submit %>
+
+        <% end %>
+      </div>
+    <% else %>
+      <%= render 'products/edit', user: current_user, product: @product  %>
+    <% end %>
+    </div>
+
+  </div>
+
 </div>
