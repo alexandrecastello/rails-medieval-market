@@ -3,8 +3,8 @@
   <%= simple_form_for(@product) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :quantity %>
-    <%= f.input :coin_price %>
+    <%= f.input :quantity, input_html: { min: 1 }  %>
+    <%= f.input :coin_price, input_html: { min: 1 }  %>
     <%= f.input :category %>
     <%= f.button :submit %>
   <% end %>

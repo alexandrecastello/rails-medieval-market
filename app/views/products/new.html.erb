@@ -8,37 +8,20 @@
 <%
 =end%>
 
-  <div class="pl-0 pt-5 mt-3 pb-4" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131;">
+  <div class="pl-0 pt-5 mt-3 pb-4 d-flex justify-content-center" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131;">
     <p>Create new product</p>
   </div>
-
-  <div class="container">
-
+  <div class="container d-flex justify-content-center">
     <div class="row d-flex justify-content-space-around">
-
-      <%= form_for(@product) do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <br>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-        <br>
-        <%= f.label :quantity %>
-        <%= f.number_field :quantity %>
-        <br>
-        <%= f.label :coin_price %>
-        <%= f.number_field :coin_price %>
-        <br>
-        <%= f.label :category %>
-        <%= f.text_field :category %>
-        <br>
+      <%= simple_form_for(@product) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :quantity, input_html: { min: 1 } %>
+        <%= f.input :coin_price, input_html: { min: 1 } %>
+        <%= f.input :category %>
         <%= f.submit %>
       <% end %>
-
     </div>
     <br>
-    <%= link_to 'Back to products', products_path %></li>
-
   </div>
-
 </div>
