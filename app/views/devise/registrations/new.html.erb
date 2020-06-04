@@ -20,7 +20,7 @@
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :coins,
                         required: true,
-                        input_html: { autocomplete: "coins" } %>
+                        input_html: { autocomplete: "coins", min: 1 } %>
             <%= f.input :username,
                         required: true,
                         input_html: { autocomplete: "username" } %>
