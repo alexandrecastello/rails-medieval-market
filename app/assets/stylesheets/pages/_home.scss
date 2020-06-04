@@ -5,6 +5,23 @@ body {
   background-color: white;
 }
 
+.topo {
+  background-image: url("banner.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.batata {
+
+  form {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+  }
+}
+
 .navbar-custom {
   display: flex;
   justify-content: space-between;
@@ -21,9 +38,6 @@ body {
 .logo {
   width: 300px;
   height: 40px;
-}
-
-.searchbanner {
 }
 
 .banner {
