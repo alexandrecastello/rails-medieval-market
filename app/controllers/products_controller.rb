@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
   end
-  
+
   def create
     @product = Product.new(product_params)
     @product.user = current_user
@@ -30,11 +30,11 @@ class ProductsController < ApplicationController
     else
       @product.save
       if @product.save
-        redirect_to product_path(@product), notice: 'Product created'
+        redirect_to user_path(current_user), notice: 'Product created'
       else
         render :new
       end
-    end 
+    end
   end
 
   def edit
@@ -59,9 +59,9 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
-  
+
   def product_params
     params.require(:product).permit(:name, :description, :quantity, :category, :coin_price, :tradable_for, :photo)
   end
-  
+
 end
