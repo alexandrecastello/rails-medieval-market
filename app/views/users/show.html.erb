@@ -1,11 +1,11 @@
 <div class="container mt-5">
 
-  <h2><%= @user.username %></h2>
+  <h2 style="font-family: 'Roboto'; font-size: 25px; margin-bottom: 25px;">Available products for <%= @user.username %></h2>
   <%= render "users/my_items" %>
-  <div class="row justify-content-around">
+  <div class="row justify-content-left">
   <% if @user == current_user %>
-  <%= link_to 'Sell a product', new_product_path %>
+  <button type="button" class="btn btn-light mr-3"><%= link_to 'Sell a product', new_product_path %></button>
   <% end %>
-  <%= link_to 'Back to Products', products_path%>
+  <button type="button" class="btn btn-light"><%= link_to 'Back to Products', products_path%></button>
   </div>
 </div>
