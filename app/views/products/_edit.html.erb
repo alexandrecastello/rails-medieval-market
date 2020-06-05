@@ -9,6 +9,7 @@
     <%= f.input :coin_price, input_html: { min: 1 }  %>
     <%= f.input :category %>
     <%= f.input :tradable_for %>
+    <%= f.input :photo, as: :file %>
     <br>
     <div class="row justify-content-center">
       <button type="button" class="btn btn-light"><%= f.button :submit %></button>

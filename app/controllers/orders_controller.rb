@@ -22,7 +22,6 @@ class OrdersController < ApplicationController
         new_product = current_user.products.find_by name: product.name
         if new_product.nil?
           new_product = Product.new name: product.name, coin_price: product.coin_price, description: product.description, user: current_user
-          new_product.quantity = order.quantity
         else
           new_product.quantity += order.quantity
         end
@@ -45,20 +44,20 @@ class OrdersController < ApplicationController
       flash[:alert] = "You have no #{buyer_product.name} available at the moment. :( "
       redirect_to products_path(seller_product)
     else
-      seller_product.quantity -= 1
-      buyer_product.quantity -= 1
       buyer_new_product = current_user.products.find_by name: seller_product.name
       if buyer_new_product.nil?
         buyer_new_product = Product.new name: seller_product.name, coin_price: seller_product.coin_price, description: seller_product.description, user: current_user, quantity: 1
       else
         buyer_new_product.quantity += 1
       end
-      seller_new_product = current_user.products.find_by name: buyer_product.name
+      seller_new_product = seller_product.user.products.find_by name: buyer_product.name
       if seller_new_product.nil?
         seller_new_product = Product.new name: buyer_product.name, coin_price: buyer_product.coin_price, description: buyer_product.description, user: seller_product.user, quantity: 1
       else
         seller_new_product.quantity += 1
       end
+      seller_product.quantity -= 1
+      buyer_product.quantity -= 1
       seller_product.save
       seller_new_product.save
       buyer_product.save
