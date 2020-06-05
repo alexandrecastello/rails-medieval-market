@@ -115,4 +115,58 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  filter: grayscale(.8);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.figure::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    background: rgba(0,0,0,.2);
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+.figure:hover{
+  animation: bloom ease-in-out .75s forwards;
+}
+.figure:hover::before {
+    animation: circle .1s;
+}
+@keyframes bloom {
+    0% {
+        filter: grayscale(.8);
+    }
+    40% {
+        filter: grayscale(.5);
+    }
+    100% {
+        filter: grayscale(0);
+    }
+}
+@keyframes circle {
+    0% {
+        opacity: .5;
+    background: rgba(213,156,34,.2);
 
+    }
+    40% {
+        opacity: 1;
+    background: rgba(213,34,160,.2);
+    }
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+    }
+}

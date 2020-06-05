@@ -12,9 +12,9 @@
 
       <div class="col s3 offset-md-1">
           <div class="imagebox" style="margin-left: -100px; margin-bottom: 50px;">
-            <% if product.photo.attached? %>
-              <%= cl_image_tag product.photo.key, height: 400, width: 400,:fetch_format=>:auto, crop: :fill %>
-            <% else %>
+            <% if @product.photo.attached? %>
+              <%= cl_image_tag @product.photo.key, height: 400, width: 400,:fetch_format=>:auto, crop: :fill %>
+            <% else %>  
               <%= image_tag "placeholder.png", class:"card-img-top" %>
             <% end %>
             <h1><strong>About this product</strong></h1><p><%= @product.description if @product.description %></p>
