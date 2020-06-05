@@ -1,10 +1,10 @@
 
 <table class="table">
   <thead>
-    <th>Object</th>
+    <th>Product</th>
     <th>Quantity</th>
     <% if @user == current_user %>
-      <th>Action</th>     
+      <th>Action</th>
     <% end %>
   </thead>
   <% @products.each do |product| %>
@@ -15,7 +15,7 @@
         <% if product.user == current_user %>
           <td>
             <div class="row justify-content-space-between">
-              <%= link_to product_path(product), method: :delete, 
+              <%= link_to product_path(product), method: :delete,
               data: { confirm: "Delete item?" } do %>
                 <i class="fa fa-trash d-flex justify-content-around pr-5"></i>
               <% end %>
