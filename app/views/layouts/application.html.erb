@@ -12,6 +12,8 @@
   </head>
 
   <body>
+    <p class="alert"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <div class="container">
       <div class="navbar-custom">
         <%= link_to root_path do %>
@@ -21,11 +23,12 @@
           <% if user_signed_in? %>
           <strong><%= link_to "#{current_user.username}", user_path(current_user) %></strong>  |
           <i class="fas fa-coins" style="color: #e9a003;"></i> <%= current_user.coins %>  |
+          <%= link_to 'Sell', new_product_path %>  |
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> |
+          <%= link_to "Log in", new_user_session_path, :class => 'navbar-link'  %> |
           <%= link_to 'Sell something', new_product_path %>
         <% end %>
       </p>
