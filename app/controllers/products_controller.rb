@@ -24,11 +24,16 @@ class ProductsController < ApplicationController
     @product.name = @product.name.capitalize
     @product.category = @product.category.capitalize
     @product.tradable_for = @product.tradable_for.capitalize
-    @product.save
-    if @product.save
-      redirect_to product_path(@product)
+    existing_product = current_user.products.find_by name: @product.name
+    if existing_product
+      redirect_to edit_product_path(existing_product), alert: "You already have #{existing_product.name}. If you want to add more, please add on product edition page"
     else
-      render :new
+      @product.save
+      if @product.save
+        redirect_to product_path(@product), notice: 'Product created'
+      else
+        render :new
+      end
     end 
   end
 

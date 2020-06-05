@@ -28,8 +28,7 @@ class OrdersController < ApplicationController
         end
         new_product.save
         product.save
-        flash[:alert] = "Congratulations: You bought #{order.quantity} #{new_product.name}"
-        redirect_to products_path(product)
+        redirect_to edit_product_path(product), notice: "Congratulations: It's yours. Now, please edit your new product price."
       end
     end
   end
@@ -64,8 +63,7 @@ class OrdersController < ApplicationController
       seller_new_product.save
       buyer_product.save
       buyer_new_product.save
-      flash[:alert] = "Congratulations: You traded your #{buyer_product.name} for this wonderful #{buyer_new_product.name}"
-      redirect_to products_path(current_user.products.last)
+      redirect_to edit_product_path(buyer_new_product), notice: "Trade was successful! Now, please edit your new product's price."
     end
   end
   
