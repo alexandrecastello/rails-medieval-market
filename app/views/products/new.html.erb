@@ -1,13 +1,4 @@
 <div class="container">
-
-  <%
-=begin%>
- <div class="navbar-custom">
-    <img src="../assets/logo.png" class="logo">
-  </div> 
-<%
-=end%>
-
   <div class="pl-0 pt-5 mt-3 pb-4 d-flex justify-content-center" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131;">
     <p>Create new product</p>
   </div>
@@ -20,7 +11,9 @@
         <%= f.input :coin_price, input_html: { min: 1 } %>
         <%= f.input :category %>
         <%= f.input :tradable_for %>
-        <%= f.submit %>
+        <div class="row justify-content-center mt-4 mb-5">
+          <%= f.submit class:"btn btn-primary btn-md" %>
+        </div>
       <% end %>
     </div>
     <br>
