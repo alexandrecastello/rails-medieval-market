@@ -17,7 +17,7 @@
     <div class="container">
     <h3>Do you wanna buy it?</h3>
       <%= simple_form_for [@product, @order] do |f| %>
-        <%= f.input :quantity, input_html: { min: 1, max: product.quantity } %>
+        <%= f.input :quantity, input_html: { min: 1, max: @product.quantity } %>
         <%= f.button :submit %>
       <% end %>
       <% if current_user.products.find_by name: @product.tradable_for %>
