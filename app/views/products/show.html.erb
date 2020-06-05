@@ -1,35 +1,86 @@
 <div class="container">
-  <h2><%= @product.name %></h2>
-  <p>Description: <%= @product.description if @product.description %></p>
-  <p>Owner: <%= link_to @product.user.username, user_path(@product.user) %></p>
-  
-  <% if @product.quantity > 0 %>
-    <p>Available: <%= @product.quantity%></p>
-    <p>Categoy: <%= @product.category%></p>
-    <p>Unit rice: <%= @product.coin_price%> coins</p>
-    <% unless @product.tradable_for == '' || @product.tradable_for.nil? %>
-      <p>Tradable for: <%= @product.tradable_for %></p>
-    <% end %>
-  <% else %>
-    <p>Product not avaliable</p>
-  <% end %>
-  <% if current_user %>
-    <% if @product.user != current_user && @product.quantity > 0 %>
-      <div class="container">
-      <h3>Do you wanna buy it?</h3>
-        <%= simple_form_for [@product, @order] do |f| %>
-          <%= f.input :quantity, input_html: { min: 1, max: @product.quantity } %>
-          <%= f.button :submit %>
-        <% end %>
-        <% if current_user.products.find_by name: @product.tradable_for %>
-          <p>-- or --</p>
-          <h3>Do you wanna trade a <%= @product.tradable_for %> for this <%= @product.name %>?</h3>
-          <%= link_to 'TRADE!', product_trade_path(@product), method: :post %>
-        <% end %>
+
+<div class="col s3" style="margin-left: -10px;">
+<%= link_to 'Back to all products', products_path %></li>
+</div>
+
+<div class="row">
+
+    <% if current_user %>
+      <% if @product.user != current_user && @product.quantity > 0 %>
+        <% if @product.quantity > 0 %>
+
+      <div class="col s3 offset-md-1">
+          <div class="imagebox" style="margin-left: -100px; margin-bottom: 50px;">
+            <%= image_tag "placeholder.png", class:"img-product" %>
+            <h1><strong>About this product</strong></h1><p><%= @product.description if @product.description %></p>
+          </div>
       </div>
-    <% elsif @product.user == current_user %>
-      <%= render 'products/edit', user: current_user, product: @product  %>
+
+<div class="col s9" style="margin-top: 50px; margin-right: 420px;">
+
+<div class="container" style="">
+        <h2><%= @product.name %></h2>
+    <p style="font-family: 'Roboto';">By <%= link_to @product.user.username, user_path(@product.user) %></p>
+
+    <div class="product-specs">
+      <p><strong>Category:</strong> <%= @product.category%></p>
+      <p><strong># Available:</strong> <%= @product.quantity%></p>
+      <br>
+    </div>
+      <p style="font-family: 'Roboto', sans-serif; font-size: 20px;"><i class="fas fa-coins" style="color: #e9a003;"></i> <%= @product.coin_price%> coins</p>
+      <% else %>
+      <p>Product not avaliable</p>
     <% end %>
-  <% end %>
-  <%= link_to 'Back to all products', products_path %></li>
+
+            <%= simple_form_for [@product, @order] do |f| %>
+            <div class="quantidade">
+              <%= f.input :quantity, input_html: { min: 1, max: @product.quantity } %>
+            </div>
+            <br>
+              <%= f.button :submit, class:"btn btn-primary btn-md mb-1" %>
+            <% end %>
+            <% if current_user.products.find_by name: @product.tradable_for %>
+              <p>Or <strong><%= link_to 'trade it', product_trade_path(@product), method: :post %></strong> with your <%= @product.tradable_for %></p>
+
+            <% end %>
+        <% elsif @product.user == current_user %>
+          <%= render 'products/edit', user: current_user, product: @product  %>
+      <% end %>
+    <% else %>
+
+<!-- Aqui mostramos as infos do produto para quem estiver deslogado -->
+
+      <% if @product.quantity > 0 %>
+
+        <div class="col s3 offset-md-1">
+            <div class="imagebox" style="margin-left: -100px; margin-bottom: 50px;">
+              <%= image_tag "placeholder.png", class:"img-product" %>
+              <h1><strong>About this product</strong></h1><p><%= @product.description if @product.description %></p>
+            </div>
+        </div>
+
+        <div class="col s9" style="margin-top: 50px; margin-right: 420px;">
+
+          <div class="container" style="">
+            <h2><%= @product.name %></h2>
+            <p style="font-family: 'Roboto';">By <%= link_to @product.user.username, user_path(@product.user) %></p>
+
+            <div class="product-specs">
+              <p><strong>Category:</strong> <%= @product.category%></p>
+              <p><strong># Available:</strong> <%= @product.quantity%></p>
+              <br>
+            </div>
+              <p style="font-family: 'Roboto', sans-serif; font-size: 20px;"><i class="fas fa-coins" style="color: #e9a003;"></i> <%= @product.coin_price%> coins</p>
+
+      <% else %>
+
+              <p>Product not avaliable</p>
+              <% end %>
+              </div>
+        </div>
+
+    <% end %>
+    </div>
+  </div>
 </div>
