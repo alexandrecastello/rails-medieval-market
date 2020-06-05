@@ -21,7 +21,7 @@
     <p>Featured</p>
   </div>
 
-  <div class="row d-flex justify-content-space-around">
+  <div class="row d-flex justify-content-space-around mb-5">
   <% @products.each do |product| %>
     <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white">
       <%= link_to  product_path(product) do %>
