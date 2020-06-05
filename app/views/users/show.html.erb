@@ -1,8 +1,8 @@
 <div class="container mt-5">
 
-  <h2 style="font-family: 'Roboto'; font-size: 25px; margin-bottom: 25px;">Available products for <%= @user.username %></h2>
+  <h2 style="font-family: 'Roboto', sans-serif; font-size: 25px; margin-bottom: 25px;">Available products for <%= @user.username %></h2>
   <%= render "users/my_items" %>
-  <div class="row justify-content-left">
+  <div class="row justify-content-left mb-5">
   <% if @user == current_user %>
   <button type="button" class="btn btn-light mr-3"><%= link_to 'Sell a product', new_product_path %></button>
   <% end %>
