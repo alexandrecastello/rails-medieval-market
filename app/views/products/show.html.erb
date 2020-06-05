@@ -14,16 +14,16 @@
           <div class="imagebox" style="margin-left: -100px; margin-bottom: 50px;">
             <% if @product.photo.attached? %>
               <%= cl_image_tag @product.photo.key, height: 400, width: 400,:fetch_format=>:auto, crop: :fill %>
-            <% else %>  
+            <% else %>
               <%= image_tag "placeholder.png", class:"card-img-top" %>
             <% end %>
-            <h1><strong>About this product</strong></h1><p><%= @product.description if @product.description %></p>
+            <h1 style="margin-top: 25px;"><strong>About this product</strong></h1><p><%= @product.description if @product.description %></p>
           </div>
       </div>
 
 <div class="col s9" style="margin-top: 50px; margin-right: 420px;">
 
-<div class="container" style="font-family: 'Roboto', sans-serif;">
+<div class="container" style="font-family: 'Roboto', sans-serif; margin-top: -50px;">
         <h2><%= @product.name %></h2>
     <p style="font-family: 'Roboto', sans-serif;">By <%= link_to @product.user.username, user_path(@product.user) %></p>
 
@@ -70,7 +70,7 @@
 
         <div class="col s9" style="margin-top: 50px; margin-right: 420px;">
 
-          <div class="container" style="">
+          <div class="container" style="margin-top: -50px;">
             <h2><%= @product.name %></h2>
             <p style="font-family: 'Roboto';">By <%= link_to @product.user.username, user_path(@product.user) %></p>
 
