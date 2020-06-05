@@ -1,13 +1,18 @@
-<div class="container">
-  <h3>Edit <%= @product.name %>:</h3>
-  <%= simple_form_for(product) do |f| %>
+<div class="container col-4 mt-5 mb-5">
+  <div class="row justify-content-center mb-3">
+  <h3>Edit <%= @product.name %></h3>
+  </div>
+    <%= simple_form_for(product) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :quantity, input_html: { min: 1 }  %>
     <%= f.input :coin_price, input_html: { min: 1 }  %>
     <%= f.input :category %>
     <%= f.input :tradable_for %>
-    <%= f.button :submit %>
+    <br>
+    <div class="row justify-content-center">
+      <button type="button" class="btn btn-light"><%= f.button :submit %></button>
+    </div>
   <% end %>
 </div>
 
