@@ -84,8 +84,8 @@ body {
 }
 
 .img-product {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   margin-top: 50px;
   margin-bottom: 25px;
 }
@@ -103,11 +103,6 @@ body {
   color: #313131;
 }
 
-// .card-body {
-//   border-bottom-left-radius: 14px;
-//   border-bottom-right-radius: 14px;
-// }
-
 .quantidade {
   width: 100px;
   display: flex;
@@ -115,16 +110,9 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-// .btn-primary {
-//   background-color: #FF6978;
-//   color: white;
-//   border: none;
-// }
+.product-specs p {
+  line-height: 10px;
+  font-family: 'Roboto', sans-serif;
+}
 
-// .btn-primary:hover {
-//   background-color: #E54D5D;
-// }
 
-// .btn-primary:active {
-//   background-color: #E54D5D;
-// }
