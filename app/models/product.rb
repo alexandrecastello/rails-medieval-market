@@ -6,6 +6,9 @@ class Product < ApplicationRecord
   validates :coin_price, on: :create, presence: true, numericality: { other_than: 0, message: "can't be zero" } 
   validates :quantity, on: :create, presence: true, numericality: { other_than: 0, message: "can't be zero" }
   
+  has_one_attached :photo
+
+
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [:name, :description],

@@ -70,3 +70,6 @@ gem 'faker'
 
 # Search
 gem 'pg_search', '~> 2.3', '>= 2.3.2'
+
+# Cloudinary
+gem 'cloudinary', '~> 1.12.0'

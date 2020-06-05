@@ -25,7 +25,11 @@
   <% @products.each do |product| %>
     <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white">
       <%= link_to  product_path(product) do %>
-        <%= image_tag "placeholder.png", class:"card-img-top" %>
+        <% if product.photo.attached? %>
+          <%= cl_image_tag product.photo.key, height: 125, width: 190, crop: :fill %>
+        <% else %>  
+          <%= image_tag "placeholder.png", class:"card-img-top" %>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title" style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 18px;"><%= product.name %></h5>
           <p class="card-text" style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px;"><i class="fas fa-coins" style="color: #e9a003;"></i>
