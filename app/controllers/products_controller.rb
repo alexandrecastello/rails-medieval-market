@@ -21,6 +21,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    @product.name = @product.name.capitalize
+    @product.category = @product.category.capitalize
+    @product.tradable_for = @product.tradable_for.capitalize
     @product.save
     if @product.save
       redirect_to product_path(@product)
@@ -34,6 +37,9 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
+    @product.name = @product.name.capitalize
+    @product.category = @product.category.capitalize
+    @product.tradable_for = @product.tradable_for.capitalize
     @product.save
     redirect_to product_path(@product)
   end
