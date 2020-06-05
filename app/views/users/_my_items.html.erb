@@ -1,8 +1,8 @@
 
 <table class="table">
   <thead>
-    <th>Product</th>
-    <th>Quantity</th>
+    <th style="font-family: 'Roboto', sans-serif;">Product</th>
+    <th style="font-family: 'Roboto', sans-serif;">Quantity</th>
     <% if @user == current_user %>
       <th>Action</th>
     <% end %>
@@ -10,7 +10,7 @@
   <% @products.each do |product| %>
     <% if product.quantity > 0 %>
       <tr>
-        <td><%= link_to "#{product.name.capitalize}", product_path(product) %></td>
+        <td style="font-family: 'Roboto', sans-serif;"><%= link_to "#{product.name.capitalize}", product_path(product) %></td>
         <td><%= product.quantity %></td>
         <% if product.user == current_user %>
           <td>

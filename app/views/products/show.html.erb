@@ -1,6 +1,6 @@
 <div class="container">
 
-<div class="col s3" style="margin-left: -10px;">
+<div class="col s3" style="margin-left: -10px; margin-bottom: 20px;">
 <%= link_to 'Back to all products', products_path %></li>
 </div>
 
@@ -23,9 +23,9 @@
 
 <div class="col s9" style="margin-top: 50px; margin-right: 420px;">
 
-<div class="container" style="">
+<div class="container" style="font-family: 'Roboto', sans-serif;">
         <h2><%= @product.name %></h2>
-    <p style="font-family: 'Roboto';">By <%= link_to @product.user.username, user_path(@product.user) %></p>
+    <p style="font-family: 'Roboto', sans-serif;">By <%= link_to @product.user.username, user_path(@product.user) %></p>
 
     <div class="product-specs">
       <p><strong>Category:</strong> <%= @product.category%></p>
@@ -61,7 +61,7 @@
             <div class="imagebox" style="margin-left: -100px; margin-bottom: 50px;">
               <% if @product.photo.attached? %>
                 <%= cl_image_tag @product.photo.key, height: 400, width: 400,:fetch_format=>:auto, crop: :fill %>
-              <% else %>  
+              <% else %>
                  <%= image_tag "placeholder.png", class:"card-img-top" %>
               <% end %>
               <h1><strong>About this product</strong></h1><p><%= @product.description if @product.description %></p>
